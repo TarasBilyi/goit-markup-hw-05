@@ -714,7 +714,6 @@ body {
 
 .castom-checkbox {
   display: inline-flex;
-  display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 8px;
