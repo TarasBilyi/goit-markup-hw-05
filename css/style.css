@@ -465,7 +465,7 @@ body {
 }
 
 .footer-subscribe-email {
-  background-color: #2e2f42;
+  background-color: transparent;
   padding: 8px 16px;
   color: #ffffff;
   border: 1px solid #ffffff;
@@ -488,10 +488,16 @@ body {
   color: #ffffff;
 }
 
+.footer-subscribe input {
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+}
+
 .footer-subscribe-btn {
+  min-width: 165px;
   background-color: #4d5ae5;
   display: flex;
-  gap: 16px;
   align-items: center;
   justify-content: center;
   padding: 8px 24px;
@@ -508,6 +514,10 @@ body {
   border: none;
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-subscribe-btn svg {
+  margin-left: 16px;
 }
 
 .footer-subscribe-btn:hover,
@@ -569,6 +579,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
   right: 24px;
   top: 24px;
   background-color: #e7e9fc;
@@ -578,14 +589,23 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
   fill: #2e2f42;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-close:hover,
 .btn-close:focus {
-  fill: #ffffff;
   background-color: #404bbf;
+  border: none;
+}
+
+.btn-close svg {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-close:hover svg,
+.btn-close:focus svg {
+  fill: #ffffff;
 }
 
 .modal-title {
@@ -601,14 +621,19 @@ body {
 .modal-form {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+}
+
+.modal-form-group {
+  margin-bottom: 8px;
 }
 
 .modal-form-label {
+  display: block;
   font-size: 12px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
+  margin-bottom: 4px;
 }
 
 .modal-form-group:focus-within svg {
@@ -620,6 +645,8 @@ body {
 }
 
 .modal-form input {
+  background-color: transparent;
+  outline: transparent;
   padding: 8px 8px 8px 38px;
   color: #2e2f42;
   border-radius: 4px;
@@ -643,20 +670,29 @@ body {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-form textarea {
-  padding: 8px 18px;
-  color: #2e2f42;
+.modal-textarea-wrap {
+  margin-bottom: 16px;
+}
+
+.modal-form-textarea {
+  padding: 8px 16px;
+  background-color: transparent;
+  outline: transparent;
+  color: rgba(46, 47, 66, 0.4);
   border-radius: 4px;
   width: 360px;
   height: 120px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
   resize: none;
   border: 1px solid rgba(46, 47, 66, 0.4);
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-form textarea::placeholder {
+.modal-form-textarea::placeholder {
   font-size: 12px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: rgba(46, 47, 66, 0.4);
 }
@@ -671,12 +707,13 @@ body {
   display: flex;
   align-items: center;
   font-size: 12px;
-  line-height: 1.16667;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
 }
 
 .castom-checkbox {
+  display: inline-flex;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -684,19 +721,22 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 2px;
+  fill: transparent;
   background-color: transparent;
   border: 1px solid rgba(46, 47, 66, 0.4);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-checkbox input:focus + .pryvacy-label > .castom-checkbox {
   border-color: #4d5ae5;
+  fill: #f4f4fd;
 }
 
 .form-checkbox input:checked + .pryvacy-label > .castom-checkbox {
   background-color: #404bbf;
-  border-color: #404bbf;
+  border: none;
 }
 
 .checkbox-link {
@@ -707,22 +747,9 @@ body {
   color: #4d5ae5;
 }
 
-.checkbox-icon {
-  fill: transparent;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-checkbox
-  input:checked
-  + .pryvacy-label
-  > .castom-checkbox
-  > .checkbox-icon {
-  fill: #f4f4fd;
-}
-
 .modal-form-btn {
   display: inline-block;
-  width: 169px;
+  min-width: 169px;
   border-radius: 4px;
   padding: 16px 32px;
   margin: 0 auto;
